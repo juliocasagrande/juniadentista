@@ -1,0 +1,9 @@
+pandas
+numpy
+openpyxl
+streamlit
+gspread
+oauth2client
+st-gsheets-connection
+streamlit-authenticator
+pyyaml

@@ -1,0 +1,28 @@
+credentials:
+  usernames:
+    julio:
+      email: juliocasagrande27@gmail.com
+      name: Julio Casagrande
+      password: $2b$12$/y7ecfNBsqidYfqtdF7mI.U4ky9wceY3AnNUNnKw435wC0IBLyjfW
+    junia:
+      email: junia_alvarenga@hotmail.com
+      name: Junia Casagrande
+      password: $2b$12$dH/4iszCIWaisd1qNnqjDumBUIGI92kLvXj7RQ/MjBWUDeP66uSEW
+    dodo:
+      email: jhobighouse@yahoo.com.br
+      name: Giovana Casagrande
+      password: $2b$12$.6NL5I10CTzK2VcylKDJQe0orvbXj7DZeAqOmqgb67uM96f.10mw.
+    katia:
+      email: jhobighouse@yahoo.com.br
+      name: Katia Carvalho
+      password: $2b$12$bjmQ6dhVDmCWOWudYs.ROed8K/Bla8V8ESB.Ht/LX50RhYaTGzAAi
+cookie:
+  expiry_days: 0
+  key: some_signature_key
+  name: some_cookie_name
+preauthorized:
+  emails:
+  - melsby@gmail.com
+
+# Código para gerar senhas
+# hashed_passwords = stauth.Hasher(['1606']).generate()
