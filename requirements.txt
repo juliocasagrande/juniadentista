@@ -7,3 +7,4 @@ oauth2client
 st-gsheets-connection
 streamlit-authenticator
 pyyaml
+streamlit_gsheets
