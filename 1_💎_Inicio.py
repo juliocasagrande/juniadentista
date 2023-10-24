@@ -43,9 +43,9 @@ if st.session_state["authentication_status"]:
     # Create a connection object.
     conn = st.experimental_connection("gsheets", type=GSheetsConnection)
 
-    df_atendimento = conn.read(spreadsheet='Junia dentista', worksheet='Atendimento')
-    df_pacientes = conn.read(spreadsheet='Junia dentista', worksheet='Pacientes')
-    df_leads = conn.read(spreadsheet='Junia dentista', worksheet='Leads')
+    df_atendimento = conn.read(worksheet='Atendimento')
+    df_pacientes = conn.read(worksheet='Pacientes')
+    df_leads = conn.read(worksheet='Leads')
 
     st.markdown('# JÚNIA ALVARENGA ODONTOLOGIA E ESTÉTICA 💎 #')
 
