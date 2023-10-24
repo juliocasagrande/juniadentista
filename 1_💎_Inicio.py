@@ -8,6 +8,8 @@ import streamlit_authenticator as stauth
 import yaml
 from yaml.loader import SafeLoader
 import os
+import toml
+from streamlit_gsheets import get_gsheet_url
 
 # Parte do streamlit
 st.set_page_config(
@@ -38,12 +40,23 @@ if st.session_state["authentication_status"]:
     if st.button('Acesse a planilha de preenchimento dos dados'):
         web.open_new_tab('https://docs.google.com/spreadsheets/d/1qe7p_-rsysUkW1BPA86Hi_nNeSuIFq-697A6iVeTmtg/edit#gid=167923064')
         
-    # Create a connection object.
-    conn = st.experimental_connection("gsheets", type=GSheetsConnection)
+    # Carregue as informações do arquivo secrets.toml
+    secrets = toml.load('secrets.toml')
 
-    df_atendimento = conn.read(spreadsheet='Junia dentista', worksheet='Atendimento')
-    df_pacientes = conn.read(spreadsheet='Junia dentista', worksheet='Pacientes')
-    df_leads = conn.read(spreadsheet='Junia dentista', worksheet='Leads')
+    # Obtenha as URLs das abas do Google Sheets a partir do arquivo secrets.toml
+    url_atendimento = secrets['connections.gsheets']['aba_atendimento']
+    url_pacientes = secrets['connections.gsheets']['aba_pacientes']
+    url_leads = secrets['connections.gsheets']['aba_leads']
+
+    # Obtenha os URLs da guia usando a função get_gsheet_url
+    url_gsheet_atendimento = get_gsheet_url(url_atendimento)
+    url_gsheet_pacientes = get_gsheet_url(url_pacientes)
+    url_gsheet_leads = get_gsheet_url(url_leads)
+
+    # Leia os dados das abas em dataframes separados
+    df_atendimento = pd.read_csv(url_gsheet_atendimento)
+    df_pacientes = pd.read_csv(url_gsheet_pacientes)
+    df_leads = pd.read_csv(url_gsheet_pacientes)
 
     st.markdown('# JÚNIA ALVARENGA ODONTOLOGIA E ESTÉTICA 💎 #')
 
